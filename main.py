@@ -50,6 +50,7 @@ def check_all_messages(message):
     response(long.lr_day, ['what', 'day', 'is', 'it', 'today'], required_words=['day'])
     response(long.lr_smart, ['do', 'you', 'get', 'smarter'], required_words=['smarter'])
     response(long.lr_lang, ['which', 'language', 'do', 'you', 'speak'], required_words=['language'])
+    response(long.lr_date, ['what', 'date', 'is', 'it', 'today'], required_words=['date'])
     
 
     best_match = max(highest_prob_list, key=highest_prob_list.get)
