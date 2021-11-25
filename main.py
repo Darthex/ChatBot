@@ -36,9 +36,21 @@ def check_all_messages(message):
         highest_prob_list[bot_response] = message_probability(message, list_of_words, single_response, required_words)
 
     # Responses-----------------------------------------------------------------
-    response('Hello!', ['hello', 'hi', 'sup', 'hey', 'heyo'], single_response=True)
+    response('Hello!', ['hello', 'hi', 'hey', 'sup', 'heyo'], single_response=True)
+    response('See you!', ['bye', 'goodbye', 'cya', 'later'], single_response=True)
     response('I\'m doing fine, and you?', ['how', 'are', 'you', 'doing'], required_words=['how'])
-    response('Thank you', ['i', 'love', 'code', 'palace'], required_words=['code', 'palace'])
+    response('You\'re welcome!', ['thank', 'thanks'], single_response=True)
+
+    # Long Responses-------------------------------------------------------------
+    response(long.lr_eat, ['where', 'should', 'i', 'eat'], required_words=['eat', 'where'])
+    response(long.lr_Advice, ['can', 'you', 'give', 'advice'], required_words=['give', 'advice'])
+    response(long.lr_age, ['what', 'is', 'your', 'age'], required_words=['age', 'your'])
+    response(long.lr_who, ['who', 'are', 'you'], required_words=['who'])
+    response(long.lr_joke, ['tell', 'me', 'a', 'joke'], required_words=['joke'])
+    response(long.lr_day, ['what', 'day', 'is', 'it', 'today'], required_words=['day'])
+    response(long.lr_smart, ['do', 'you', 'get', 'smarter'], required_words=['smarter'])
+    response(long.lr_lang, ['which', 'language', 'do', 'you', 'speak'], required_words=['language'])
+    
 
     best_match = max(highest_prob_list, key=highest_prob_list.get)
     # print(highest_prob_list)
@@ -66,3 +78,4 @@ while ip:
     st.write('bot: ' + chat)
     record.append(chat)
     ip = False
+
