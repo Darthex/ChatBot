@@ -36,10 +36,11 @@ def check_all_messages(message):
         highest_prob_list[bot_response] = message_probability(message, list_of_words, single_response, required_words)
 
     # Responses-----------------------------------------------------------------
-    response('Hello!', ['hello', 'hi', 'hey', 'sup', 'heyo'], single_response=True)
+    response('Hello ' + str(name) + '!', ['hello', 'hi', 'hey', 'sup', 'heyo'], single_response=True)
     response('See you!', ['bye', 'goodbye', 'cya', 'later'], single_response=True)
     response('I\'m doing fine, and you?', ['how', 'are', 'you', 'doing'], required_words=['how'])
     response('You\'re welcome!', ['thank', 'thanks'], single_response=True)
+    response('My name is Mosh, nice to meet you ' + str(name), ['what', 'is', 'your', 'name'], required_words=['your', 'name'])
 
     # Long Responses-------------------------------------------------------------
     response(long.lr_eat, ['where', 'should', 'i', 'eat'], required_words=['eat', 'where'])
@@ -51,7 +52,6 @@ def check_all_messages(message):
     response(long.lr_smart, ['do', 'you', 'get', 'smarter'], required_words=['smarter'])
     response(long.lr_lang, ['which', 'language', 'do', 'you', 'speak'], required_words=['language'])
     response(long.lr_date, ['what', 'date', 'is', 'it', 'today'], required_words=['date'])
-    
 
     best_match = max(highest_prob_list, key=highest_prob_list.get)
     # print(highest_prob_list)
@@ -67,9 +67,7 @@ def get_response(user_input):
 
 # Testing the response system
 name = st.text_input('Enter your name')
-while name:
-    st.text('Welcome ' + name)
-    name = False
+st.text('Welcome ' + name)
 
 ip = st.text_input('you: ')
 
