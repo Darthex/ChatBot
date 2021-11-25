@@ -72,11 +72,9 @@ while name:
     name = False
 
 ip = st.text_input('you: ')
-record = []
 
 while ip:
     chat = get_response(ip)
     st.write('bot: ' + chat)
-    record.append(chat)
     ip = False
 
